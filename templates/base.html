@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TEAM Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <header class="header">
+        <h1>Team generator</h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu__item">
+                    <a href="/">Главная</a>
+                </li>
+                <li class="menu__item">
+                    <a href="/team_gen/">Сформировать команды</a>
+                </li>
+                <li class="menu__item">
+                    <a href="/players/">Наши футболисты</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="conteiner">
+        {% block content %}
+        {% endblock %}
+
+        {% block button %}
+        {% endblock %}
+    </section>
+    <footer class="footer">
+        <p>{% block date %}{% endblock %} &copy; Евгений Журбенко</p>
+    </footer>
+</body>
+
+</html>

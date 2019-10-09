@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Их нужно знать в лицо!</h2>
+<ul>
+    {% for player in players %}
+    <li>
+        <h3>{{ player.name }}</h3>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}

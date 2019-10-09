@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Сформируй команды! </h2>
+<h3>Выберите активных игроков:</h3>
+
+<!--<label><input type="checkbox" name="Евгений Журбенко"><span></span></label>-->
+<form action="/user_form/" method="post" class="form">
+    i=1
+    {% for player in players %}
+    <label>
+    <input type="checkbox" name="list[player.name]">{{ player.name }}
+    </label>
+    i+=1
+    {% endfor %}
+
+{% endblock %}
+
+{% block button %}
+<p></p>
+<button type="submit">Сформировать команды</button>
+{% endblock %}
+</form>
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}

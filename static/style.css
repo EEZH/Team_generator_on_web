@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    }
+
+ul, li, h1, h2, h3, h4, h5, h6{
+
+    padding: 0;
+
+}
+
+.conteiner{
+    padding-left: 50px;
+    padding-right: 50 px;
+}
+
+.header{
+    background-color: #ffbb044d;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    margin-inline-end: 10px;
+}
+
+.footer{
+    background-color: #c0c0c04d;
+    color: gray;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 30 px;
+    margin-bottom: 20px;
+}
+
+.menu__item{
+    list-style-type: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.menu__item a{
+    text-decoration: none;
+    padding: 10px;
+    transition: all .3s;
+    color: black;
+}
+
+.menu__item a:hover{
+    transition: all .5s;
+    color: white;

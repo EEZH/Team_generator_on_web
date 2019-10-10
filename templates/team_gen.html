@@ -6,13 +6,13 @@
 <h3>Выберите активных игроков:</h3>
 
 <!--<label><input type="checkbox" name="Евгений Журбенко"><span></span></label>-->
-<form action="/user_form/" method="post" class="form">
-    i=1
+<form action="/team_gen/" method="post">
+
     {% for player in players %}
     <label>
-    <input type="checkbox" name="list[player.name]">{{ player.name }}
+    <input type="checkbox" name="name"> {{ player.name }}
     </label>
-    i+=1
+
     {% endfor %}
 
 {% endblock %}

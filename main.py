@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
-from data import players_class_list, players, year, list
+from data import players_class_list, players, year, a
 
 from functions import db_list_getter
+
 app = Flask(__name__)
 
 
@@ -12,14 +13,16 @@ def home():
 
 @app.route("/team_gen/", methods=["GET", "POST"])
 def team_gen():
-    active_players = []
-    a = dict(
-        active=request.form["list[player.name]"]
+    if request.method == "GET":
+        return render_template("team_gen.html", players=players, year=year)
+    list = []
+    active = dict(
+    player=request.form["name"]
     )
-    active_players.append(a)
-
-    print(active_players)
+    list.append(active)
+    print(list)
     return render_template("team_gen.html", players=players, year=year)
+
 
 
 @app.route("/players/")

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Команды сформированы! </h2>
+<h3>Команда №1:</h3>
+    {% for player in team1 %}
+    <div>
+        <p>{{ player.name }}</p>
+    </div>
+
+    {% endfor %}
+
+<!--<div>-->
+<!--    <p>-->
+<!--        {{ team1_power }}-->
+<!--    </p>-->
+<!--</div>-->
+
+{% endblock %}
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}

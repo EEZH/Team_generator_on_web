@@ -42,7 +42,7 @@ def ap_list_getter():
     cursor.execute(query_active_players)
     conn.commit()
     active_players.append(cursor.fetchall())
-    print(active_players)
+    # print(active_players)
     return active_players
 
 
@@ -75,8 +75,8 @@ def team_power(team):
     team_power = 0
     for player in team:
         team_power += player.average_stats
-        print(player.name)
-    print(team_power)
+        # print(player.name)
+    # print(team_power)
     return team_power
 
 

@@ -6,11 +6,11 @@
 <h3>Выберите активных игроков:</h3>
 
 <!--<label><input type="checkbox" name="Евгений Журбенко"><span></span></label>-->
-<form action="/team_gen/" method="post">
+<form action="/team_gen/" method="POST">
 
     {% for player in players %}
     <label>
-    <input type="checkbox" name="name"> {{ player.name }}
+    <input type="checkbox" name="myPlayer" value="{{ player.name }}"> {{ player.name }}
     </label>
 
     {% endfor %}
@@ -21,6 +21,21 @@
 <p></p>
 <button type="submit">Сформировать команды</button>
 {% endblock %}
+
+    {% block viewer %}
+    <h2>Команды сформированы!</h2>
+    <h3>Команда №1:
+    {% for player in team1 %}
+    </h3><p>{{ player.name }}</p>
+    {% endfor %}
+    <p>Мощь:{{team1_power}}</p>
+
+    <h3>Команда №2:
+    {% for player in team2 %}
+    </h3><p>{{ player.name }}</p>
+    {% endfor %}
+    <p>Мощь:{{team2_power}}</p>
+    {% endblock %}
 </form>
 {% block date %}
 <p>{{ year }}</p>

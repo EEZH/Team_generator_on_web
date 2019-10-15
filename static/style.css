@@ -55,3 +55,64 @@ ul, li, h1, h2, h3, h4, h5, h6{
 .menu__item a:hover{
     transition: all .5s;
     color: white;
+
+.wrapper{
+  text-align:center;
+  vertical-align:top;
+}
+.checkbox{
+  position:relative;
+  height:auto;
+  width:200px;
+  display:inline-block;
+}
+.checkbox img{
+  height:100px;
+  width:100px;
+  display:block;
+}
+.checkbox span{
+  margin:5px;
+  display:block;
+}
+.checkbox label{
+  display:block;
+  cursor:pointer;
+  position:relative;
+}
+.checkbox label:before{
+  content:"";
+  display:block;
+  width:50px;
+  height:50px;
+  margin:auto;
+  position:absolute;
+  left:0;
+  right:0;
+  top:75px;
+  background-color:transparent;
+  border-radius:50px;
+}
+.checkbox label:after{
+  content:"";
+  display:block;
+  width:26px;
+  height:12px;
+  margin:auto;
+  position:absolute;
+  left:0;
+  right:0;
+  top:88px;
+  border-left:5px solid transparent;
+  border-bottom:5px solid transparent;
+  transform:rotate(-45deg);
+}
+.checkbox input[type=checkbox]{
+  display:none;
+}
+.checkbox input[type=checkbox]:checked + label:before{
+  background-color:#8dc3ff;
+}
+.checkbox input[type=checkbox]:checked + label:after{
+  border-color:#fff;
+}

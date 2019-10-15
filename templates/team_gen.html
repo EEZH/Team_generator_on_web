@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+</head>
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -10,7 +16,7 @@
 
     {% for player in players %}
     <label>
-    <input type="checkbox" name="myPlayer" value="{{ player.name }}"> {{ player.name }}
+    <input type="checkbox" name="myPlayer" value="{{ player.name }}">  {{ player.name }}
     </label>
 
     {% endfor %}
@@ -21,22 +27,30 @@
 <p></p>
 <button type="submit">Сформировать команды</button>
 {% endblock %}
-
-    {% block viewer %}
-    <h2>Команды сформированы!</h2>
-    <h3>Команда №1:
-    {% for player in team1 %}
-    </h3><p>{{ player.name }}</p>
-    {% endfor %}
-    <p>Мощь:{{team1_power}}</p>
-
-    <h3>Команда №2:
-    {% for player in team2 %}
-    </h3><p>{{ player.name }}</p>
-    {% endfor %}
-    <p>Мощь:{{team2_power}}</p>
-    {% endblock %}
+<table width="100%" cellspacing="0" cellpadding="5">
+    <tr>
+        <td width="49%" valign="top">
+            {% block viewer %}
+            <h2>Команды сформированы!</h2>
+            <h3>Команда №1:
+            {% for player in team1 %}
+            </h3><p>{{ player.name }}</p>
+            {% endfor %}
+            <p>Общий показатель: {{team1_power}}</p>
+        </td>
+            <td valign="top">
+                <h3>Команда №2:
+                {% for player in team2 %}
+                </h3><p>{{ player.name }}</p>
+                {% endfor %}
+                <p>Общий показатель: {{team2_power}}</p>
+                {% endblock %}
+            </td>
+    </tr>
+</table>
 </form>
 {% block date %}
 <p>{{ year }}</p>
 {% endblock %}
+
+</html>

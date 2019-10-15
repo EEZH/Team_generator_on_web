@@ -67,9 +67,14 @@ def team_gen():
     return render_template("team_gen.html", players=players, year=year, team1=team1, team1_power=team_power(team1), team2=team2, team2_power=team_power(team2))
 
 
-@app.route("/team_gen/teams_viewer/")
-def teams_viewer():
-    return render_template("teams_viewer.html", year=year)
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html", page="not found")
+
+
+@app.route("/teams/")
+def teams():
+    return render_template("players_list.html", year=year)
 
 
 @app.route("/players/")

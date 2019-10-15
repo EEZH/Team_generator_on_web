@@ -74,7 +74,7 @@ def not_found(error):
 
 @app.route("/teams/")
 def teams():
-    return render_template("players_list.html", year=year)
+    return render_template("teams.html", year=year)
 
 
 @app.route("/players/")

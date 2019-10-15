@@ -1,15 +1,36 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+</head>{% extends "base.html" %}
 
 {% block content %}
 
-<h2>Команды сформированы! </h2>
-<h3>Команда №1:</h3>
-    {% for player in team1 %}
-    <div>
-        <p>{{ player.name }}</p>
-    </div>
-
-    {% endfor %}
+<table width="100%" cellspacing="0" cellpadding="5">
+    <tr>
+        <td width="49%" valign="top">
+            {% block viewer %}
+            <h2>Команды сформированы!</h2>
+            <h3>Команда №1:
+                {% for player in team1 %}
+                    </h3><p>{{ player.name }}</p>
+                {% endfor %}
+            <p>Общий показатель: {{team1_power}}</p>
+        </td>
+            <td valign="top">
+                <h3>Команда №2:
+                    {% for player in team2 %}
+                        </h3><p>{{ player.name }}</p>
+                    {% endfor %}
+                <p>Общий показатель: {{team2_power}}</p>
+                {% endblock %}
+            </td>
+    </tr>
+</table>
 
 <!--<div>-->
 <!--    <p>-->
@@ -21,3 +42,5 @@
 {% block date %}
 <p>{{ year }}</p>
 {% endblock %}
+
+</html>

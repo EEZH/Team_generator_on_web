@@ -4,17 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-</head>{% extends "base.html" %}
+    <link href="../static/photos/static.css" rel="stylesheet">
 
-{% block content %}
+    {% extends "base.html" %}
+
+    {% block navigation %}
+
+    <div class="row">
+        <ul class="nav nav-pills nav-justified">
+          <li role="presentation"><a href="/">Главная</a></li>
+          <li role="presentation"><a href="/team_gen/">Сформировать команды</a></li>
+          <li role="presentation"><a href="/players/">Наши футболисты</a></li>
+        </ul>
+    </div>
+    {% endblock %}
+
+{% block result %}
 
 <table width="100%" cellspacing="0" cellpadding="5">
-    <tr>
-        <td width="49%" valign="top">
             {% block viewer %}
             <h2>Команды сформированы!</h2>
+        <td width="49%" valign="top">
+
             <h3>Команда №1:
                 {% for player in team1 %}
                     </h3><p>{{ player.name }}</p>
@@ -29,7 +41,7 @@
                 <p>Общий показатель: {{team2_power}}</p>
                 {% endblock %}
             </td>
-    </tr>
+
 </table>
 
 <!--<div>-->

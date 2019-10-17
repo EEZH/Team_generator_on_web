@@ -4,59 +4,51 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link href="../static/photos/static.css" rel="stylesheet">
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
 
-{% extends "base.html" %}
+    {% extends "base.html" %}
 
-{% block content %}
+    {% block navigation %}
 
-<h2>Сформируй команды! </h2>
-<h3>Выберите активных игроков:</h3>
+    <div class="row">
+        <ul class="nav nav-pills nav-justified">
+          <li role="presentation"><a href="/">Главная</a></li>
+          <li role="presentation" class="active"><a href="/team_gen/">Сформировать команды</a></li>
+          <li role="presentation"><a href="/players/">Наши футболисты</a></li>
+        </ul>
+    </div>
+    {% endblock %}
 
-<!--<label><input type="checkbox" name="Евгений Журбенко"><span></span></label>-->
-<form action="/team_gen/" method="POST">
+    {% block content %}
 
+    <h2>Сформируй команды! </h2>
+    <h3>Выберите активных игроков:</h3>
+
+    <form action="/team_gen/" method="POST">
     {% for player in players %}
-    <label>
-        <input type="checkbox" name="myPlayer" value="{{ player.name }}">  {{ player.name }}
-        <img src="../static/photos/noname.jpg" class="img-responsive img-rounded"  width="130" height="130" title="{{ player.name }}"/>
-    </label>
-<!--"https://marcoplay.com/img/forum_unknown.jpg"-->
-    {% endfor %}
+        <div class="wrapper">
+          <div class="checkbox">
+            <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
+            <label for="{{ player.name }}">
+              <img src="../static/photos/noname.jpg" class="img-rounded" width="100" height="100"/>
+              <span>{{ player.name }}</span>
+            </label>
+          </div>
+        </div><!--.wrapper-->
+     {% endfor %}
 
-{% endblock %}
+    {% endblock %}
+    {% block button %}
+    <p></p>
+        <button type="submit" >Сформировать команды</button>
+    {% endblock %}
 
-{% block button %}
-<p></p>
-    <button type="submit">Сформировать команды</button>
-{% endblock %}
-<table width="100%" cellspacing="0" cellpadding="5">
-    <tr>
-        <td width="49%" valign="top">
-            {% block viewer %}
-            <h2>Команды сформированы!</h2>
-            <h3>Команда №1:
-            {% for player in team1 %}
-            </h3><p>{{ player.name }}</p>
-            {% endfor %}
-            <p>Общий показатель: {{team1_power}}</p>
-        </td>
-            <td valign="top">
-                <h3>Команда №2:
-                {% for player in team2 %}
-                </h3><p>{{ player.name }}</p>
-                {% endfor %}
-                <p>Общий показатель: {{team2_power}}</p>
-                {% endblock %}
-            </td>
-    </tr>
-</table>
 </form>
-{% block date %}
-<p>{{ year }}</p>
-{% endblock %}
+
+    {% block date %}
+    <p>{{ year }}</p>
+    {% endblock %}
 
 </html>

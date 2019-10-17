@@ -17,6 +17,7 @@ def team_gen():
 
     active_players = request.form.getlist("myPlayer")
 
+
     # формируем список экземпляров класса Player из активных игроков
     def active_payers_list():
         active_players_list = []
@@ -64,7 +65,7 @@ def team_gen():
     team2 = clbr[1]
     # print(team1, team2)
 
-    return render_template("team_gen.html", players=players, year=year, team1=team1, team1_power=team_power(team1), team2=team2, team2_power=team_power(team2))
+    return render_template("teams.html", players=players, year=year, team1=team1, team1_power=team_power(team1), team2=team2, team2_power=team_power(team2))
 
 
 @app.errorhandler(404)

@@ -9,6 +9,17 @@
 
 {% extends "base.html" %}
 
+{% block navigation %}
+
+<div class="row">
+    <ul class="nav nav-pills nav-justified">
+      <li role="presentation"><a href="/">Главная</a></li>
+      <li role="presentation"><a href="/team_gen/">Сформировать команды</a></li>
+      <li role="presentation" class="active"><a href="/players/">Наши футболисты</a></li>
+    </ul>
+</div>
+{% endblock %}
+
 {% block content %}
 <h2>Их нужно знать в лицо!</h2>
 <ul>

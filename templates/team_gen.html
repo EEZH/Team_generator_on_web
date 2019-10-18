@@ -14,35 +14,38 @@
 
     <div class="row">
         <ul class="nav nav-pills nav-justified">
-          <li role="presentation"><a href="/">Главная</a></li>
-          <li role="presentation" class="active"><a href="/team_gen/">Сформировать команды</a></li>
-          <li role="presentation"><a href="/players/">Наши футболисты</a></li>
+          <li role="presentation"><a href="/"><h4>Главная</h4></a></li>
+          <li role="presentation" class="active"><a href="/team_gen/"><h4>Сформировать команды</h4></a></li>
+          <li role="presentation"><a href="/players/"><h4>Наши футболисты</h4></a></li>
         </ul>
     </div>
     {% endblock %}
 
     {% block content %}
 
-    <h2>Сформируй команды! </h2>
-    <h3>Выберите активных игроков:</h3>
+    <h2>Выберите активных игроков:</h2>
 
     <form action="/team_gen/" method="POST">
-    {% for player in players %}
+
         <div class="wrapper">
-          <div class="checkbox">
+            {% for player in players %}
+          <div class="checkbox1">
             <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
             <label for="{{ player.name }}">
               <img src="../static/photos/noname.jpg" class="img-rounded" width="100" height="100"/>
               <span>{{ player.name }}</span>
             </label>
           </div>
+            {% endfor %}
         </div><!--.wrapper-->
-     {% endfor %}
+
 
     {% endblock %}
     {% block button %}
-    <p></p>
-        <button type="submit" >Сформировать команды</button>
+    <div class="superbutton_1">
+        <p></p>
+        <button type="submit" class="superbutton_1"><h4>Cформировать команды</h4></button>
+    </div>
     {% endblock %}
 
 </form>

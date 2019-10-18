@@ -13,44 +13,46 @@
 
     <div class="row">
         <ul class="nav nav-pills nav-justified">
-          <li role="presentation"><a href="/">Главная</a></li>
-          <li role="presentation"><a href="/team_gen/">Сформировать команды</a></li>
-          <li role="presentation"><a href="/players/">Наши футболисты</a></li>
+          <li role="presentation"><a href="/"><h4>Главная</h4></a></li>
+          <li role="presentation"><a href="/team_gen/"><h4>Сформировать команды</h4></a></li>
+          <li role="presentation"><a href="/players/"><h4>Наши футболисты</h4></a></li>
         </ul>
     </div>
     {% endblock %}
 
-{% block result %}
+    {% block result %}
 
-<table width="100%" cellspacing="0" cellpadding="5">
+    <table width="100%" cellspacing="0" cellpadding="5">
             {% block viewer %}
-            <h2>Команды сформированы!</h2>
-        <td width="49%" valign="top">
+                <div class="center-block">
+                    <h2>Команды сформированы!</h2>
+                </div>
+            <td width="49%" valign="top">
 
-            <h3>Команда №1:
-                {% for player in team1 %}
-                    </h3><p>{{ player.name }}</p>
-                {% endfor %}
-            <p>Общий показатель: {{team1_power}}</p>
-        </td>
+                <h3>Команда №1:
+                    {% for player in team1 %}
+                        </h3><p>{{ player.name }}</p>
+                    {% endfor %}
+                <p><em>Общий показатель: {{team1_power}}</em></p>
+            </td>
             <td valign="top">
                 <h3>Команда №2:
                     {% for player in team2 %}
                         </h3><p>{{ player.name }}</p>
                     {% endfor %}
-                <p>Общий показатель: {{team2_power}}</p>
+                <p><em>Общий показатель: {{team2_power}}</em></p>
                 {% endblock %}
             </td>
 
-</table>
+    </table>
 
-<!--<div>-->
-<!--    <p>-->
-<!--        {{ team1_power }}-->
-<!--    </p>-->
-<!--</div>-->
+    <div>
+        <p></p>
+        <input type="button" onclick="location.href='/team_gen/'" value="К выбору игроков">
+    </div>
+    {% endblock %}
 
-{% endblock %}
+
 {% block date %}
 <p>{{ year }}</p>
 {% endblock %}

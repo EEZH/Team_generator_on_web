@@ -3,6 +3,7 @@ from classes import Player
 import random
 import tkinter as tk
 import datetime
+import os
 
 
 # определяем текущий год
@@ -75,9 +76,7 @@ def team_power(team):
     team_power = 0
     for player in team:
         team_power += player.average_stats
-        # print(player.name)
-    # print(team_power)
-    return team_power
+    return round(team_power, 3)
 
 
 # определяем дельту силы команд
@@ -102,8 +101,12 @@ def team_clbr(team_1, team_2):
 
         cnt += 1
         delta_power(team_1, team_2)
-
+        if cnt > 10000:
+            gen_error = "Не удается сформировать равные команды из выбранных игроков!"
+            print(gen_error)
+            break
     return team_1, team_2
+
 
 # отрисовываем окно добавления игрока
 def add_user_render():
@@ -155,8 +158,8 @@ def add_user_render():
     lbl_amplua.grid(sticky="W", row=8, column=0)
 
     btn_accept_user = tk.Button(top_window, text="Accept")
-        #                         , command=lambda: self.on_click(
-        # input_name, input_surname, input_age, input_email, input_mobile, root=top_window))
+    #                         , command=lambda: self.on_click(
+    # input_name, input_surname, input_age, input_email, input_mobile, root=top_window))
     btn_accept_user.grid(row=10, column=1)
     return top_window
 
@@ -175,3 +178,18 @@ def add_user(self, name, surname, age, email, mobile):
         , "{email}"
         , {mobile})
     """)
+
+
+# перебор файлов в папке
+def file_list():
+    directory = "static/photos"
+    files = os.listdir(directory)
+    images = []
+    for file in files:
+        if file.endswith(".jpg"):
+            images.append(file)
+    return images
+
+
+a = file_list()
+print(a[0])

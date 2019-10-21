@@ -14,9 +14,9 @@
 
     <div class="row">
         <ul class="nav nav-pills nav-justified">
-          <li role="presentation"><a href="/"><h4>Главная</h4></a></li>
-          <li role="presentation" class="active"><a href="/team_gen/"><h4>Сформировать команды</h4></a></li>
-          <li role="presentation"><a href="/players/"><h4>Наши футболисты</h4></a></li>
+            <li role="presentation"><a href="/"><h4>Главная</h4></a></li>
+            <li role="presentation" class="active"><a href="/team_gen/"><h4>Сформировать команды</h4></a></li>
+            <li role="presentation"><a href="/players/"><h4>Наши футболисты</h4></a></li>
         </ul>
     </div>
     {% endblock %}
@@ -29,26 +29,26 @@
 
         <div class="wrapper">
             {% for player in players %}
-          <div class="checkbox1">
-            <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
-            <label for="{{ player.name }}">
-              <img src="../static/photos/noname.jpg" class="img-rounded" width="100" height="100"/>
-              <span>{{ player.name }}</span>
-            </label>
-          </div>
+            <div class="checkbox1">
+                <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
+                <label for="{{ player.name }}">
+                    <img src="../static/photos/noname.jpg" class="img-rounded" width="70" height="70"/>
+                    <span>{{ player.name }}</span>
+                </label>
+            </div>
             {% endfor %}
         </div><!--.wrapper-->
 
 
-    {% endblock %}
-    {% block button %}
-    <div class="superbutton_1">
-        <p></p>
-        <button type="submit" class="superbutton_1"><h4>Cформировать команды</h4></button>
-    </div>
-    {% endblock %}
+        {% endblock %}
+        {% block button %}
+        <div class="superbutton_1">
+            <p></p>
+            <button type="submit" class="superbutton_1">Cформировать команды</button>
+        </div>
+        {% endblock %}
 
-</form>
+    </form>
 
     {% block date %}
     <p>{{ year }}</p>

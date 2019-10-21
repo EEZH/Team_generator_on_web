@@ -5,12 +5,12 @@
 .checkbox1{
   
   height:auto;
-  width:200px;
+  width:100px;
   display:inline-block;
 }
 .checkbox1 img{
-  height:200px;
-  width:200px;
+  height:100px;
+  width:100px;
   display:block;
 }
 .checkbox1 span{
@@ -25,28 +25,28 @@
 .checkbox1 label:before{
   content:"";
   display:block;
-  width:50px;
-  height:50px;
+  width:25px;
+  height:25px;
   margin:auto;
   position:absolute;
   left:0;
   right:0;
-  top:75px;
+  top:45px;
   background-color:transparent;
   border-radius:50px;
 }
 .checkbox1 label:after{
   content:"";
   display:block;
-  width:26px;
-  height:12px;
+  width:13px;
+  height:7px;
   margin:auto;
   position:absolute;
   left:0;
   right:0;
-  top:88px;
-  border-left:5px solid transparent;
-  border-bottom:5px solid transparent;
+  top:52px;
+  border-left:2px solid transparent;
+  border-bottom:2px solid transparent;
   transform:rotate(-45deg);
 }
 .checkbox1 input[type=checkbox]{
@@ -59,15 +59,102 @@
   border-color:#fff;
 }
 .superbutton_1 {
-width:260px;
-height:60px;
-border-radius:30px;
+width:180px;
+height:35px;
+border-radius:40px;
 background:#337ab7;
 color:#fff;
-font-size:18px;
+font-size:14px;
 cursor:pointer;
 margin:0 auto;
 }
 .superbutton_1:hover{
 background:#358DE5;
+}
+.superbutton_2_left {
+width:180px;
+height:45px;
+border-radius:40px;
+background:#337ab7;
+color:#fff;
+font-size:14px;
+cursor:pointer;
+margin:0 auto;
+margin:left-side;
+float:left;
+margin-right:0px;
+}
+.superbutton_2_left:hover{
+background:#358DE5;
+}
+.superbutton_2_right {
+width:180px;
+height:45px;
+border-radius:40px;
+background:#337ab7;
+color:#fff;
+font-size:14px;
+cursor:pointer;
+margin:0 auto;
+margin:right-side;
+float:right;
+margin-right:0px;
+}
+.superbutton_2_right:hover{
+background:#358DE5;
+}
+.footer{
+    background-color: #c0c0c04d;
+    color: gray;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.background-img-block{
+    background-image:url(field.jpg); 
+	background-size: cover;
+    background-repeat:no-repeat;
+	width: 100%; 
+	justify-content: center; 
+	align-items: center;
+	background-position:center;
+	color:#ffffff;
+	webkit-filter: sepia(0.7);
+	filter: sepia(0.8);"
+	}
+.result-viewer {
+	padding-left:30px;
+	padding-top:5px;
+}
+.teams-result-viewer {
+	padding-bottom:5px; 
+	padding-left:50px;
+}
+.players-result-viewer {
+	padding-left:50px;
+	font-size:12pt;
+	font-style: italic;
+	
+}
+.teams-result-viewer-left {
+	padding-bottom:5px; 
+	padding-left:30px;
+}
+.players-result-viewer-left {
+	padding-left:30px;
+	font-size:12pt;
+	font-style: italic;
+	
+}
+.average-stats-viewer-left {
+	padding-left:30px;
+	padding-top:5px;
+	font-size:10pt;
+	font-style: oblique;
+}
+.average-stats-viewer {
+	padding-left:50px;
+	padding-top:5px;
+	font-size:10pt;
+	font-style: oblique;
 }

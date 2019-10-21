@@ -17,7 +17,6 @@ def team_gen():
 
     active_players = request.form.getlist("myPlayer")
 
-
     # формируем список экземпляров класса Player из активных игроков
     def active_payers_list():
         active_players_list = []
@@ -27,17 +26,12 @@ def team_gen():
                     active_players_list.append(myPlayer)
         return active_players_list
 
-    # myPlayers = active_payers_list()
-    # print(myPlayers)
     # определям количество игроков в командах
     def div_players_team(active_players_list):
         team_1_cnt = len(active_payers_list()) // 2
         team_2_cnt = len(active_payers_list()) - team_1_cnt
 
         return team_1_cnt, team_2_cnt
-
-    # two_teams_len = div_players_team(active_payers_list())
-    # print(two_teams_len)
 
     # формируем команды
     def team_creator():
@@ -57,15 +51,14 @@ def team_gen():
 
     teams = team_creator()
     print(teams)
-    team1_power = team_power(team_creator()[0])
-    team2_power = team_power(team_creator()[1])
+
     delta_power_loc = delta_power(team_creator()[0], team_creator()[1])
     clbr = team_clbr(team_creator()[0], team_creator()[1])
     team1 = clbr[0]
     team2 = clbr[1]
-    # print(team1, team2)
 
-    return render_template("teams.html", players=players, year=year, team1=team1, team1_power=team_power(team1), team2=team2, team2_power=team_power(team2))
+    return render_template("teams.html", players=players, year=year, team1=team1, team1_power=team_power(team1),
+                           team2=team2, team2_power=team_power(team2))
 
 
 @app.errorhandler(404)

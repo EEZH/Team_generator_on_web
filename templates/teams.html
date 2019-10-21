@@ -13,48 +13,55 @@
 
     <div class="row">
         <ul class="nav nav-pills nav-justified">
-          <li role="presentation"><a href="/"><h4>Главная</h4></a></li>
-          <li role="presentation"><a href="/team_gen/"><h4>Сформировать команды</h4></a></li>
-          <li role="presentation"><a href="/players/"><h4>Наши футболисты</h4></a></li>
+            <li role="presentation"><a href="/"><h4>Главная</h4></a></li>
+            <li role="presentation"><a href="/team_gen/"><h4>Сформировать команды</h4></a></li>
+            <li role="presentation"><a href="/players/"><h4>Наши футболисты</h4></a></li>
         </ul>
     </div>
     {% endblock %}
 
     {% block result %}
-
-    <table width="100%" cellspacing="0" cellpadding="5">
+    <div class="background-img-block img-rounded">
+        <table width="100%" cellspacing="0" cellpadding="5">
             {% block viewer %}
-                <div class="center-block">
-                    <h2>Команды сформированы!</h2>
-                </div>
-            <td width="49%" valign="top">
-
-                <h3>Команда №1:
+            <div class="result-viewer">
+                <h2>Команды сформированы!</h2>
+            </div>
+            <div>
+                <td width="49%" valign="top">
+                    <h3 class="teams-result-viewer-left">Команда №1:</h3>
                     {% for player in team1 %}
-                        </h3><p>{{ player.name }}</p>
+                    <p class="players-result-viewer-left">{{ player.name }}</p>
                     {% endfor %}
-                <p><em>Общий показатель: {{team1_power}}</em></p>
-            </td>
-            <td valign="top">
-                <h3>Команда №2:
+                    <p class="average-stats-viewer-left">Общий показатель: {{team1_power}}</p>
+                </td>
+                <td valign="top">
+                    <h3 class="teams-result-viewer">Команда №2:</h3>
                     {% for player in team2 %}
-                        </h3><p>{{ player.name }}</p>
+                    <p class="players-result-viewer">{{ player.name }}</p>
                     {% endfor %}
-                <p><em>Общий показатель: {{team2_power}}</em></p>
-                {% endblock %}
-            </td>
-
-    </table>
-
-    <div>
-        <p></p>
-        <input type="button" onclick="location.href='/team_gen/'" value="К выбору игроков">
+                    <p class="average-stats-viewer">Общий показатель: {{team2_power}}</p>
+                    {% endblock %}
+                </td>
+            </div>
+        </table>
     </div>
+    <div class="superbutton_2_left">
+
+        <button type="button" class="superbutton_2_left" onclick="location.href='/team_gen/'">К выбору игроков
+        </button>
+    </div>
+    <div class="superbutton_2_right">
+
+        <button type="button" class="superbutton_2_right" onclick="location.reload()">Альтернативный вариант
+        </button>
+    </div>
+    <div style="clear: both;"></div>
     {% endblock %}
 
 
-{% block date %}
-<p>{{ year }}</p>
-{% endblock %}
+    {% block date %}
+    <p>{{ year }}</p>
+    {% endblock %}
 
 </html>

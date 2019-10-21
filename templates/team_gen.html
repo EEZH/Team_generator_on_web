@@ -34,8 +34,17 @@
             <div class="checkbox1">
                 <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
                 <label for="{{ player.name }}">
-                    <img src="../static/photos/noname.jpg" class="img-rounded" width="70" height="70"/>
+                    <img src="../static/photos/{{ player.id }}.jpg" class="img-rounded" width="70" height="70"/>
                     <span>{{ player.name }}</span>
+                </label>
+            </div>
+            {% endfor %}
+            {% for sec_player in sec_players %}
+            <div class="checkbox1">
+                <input id="{{ sec_player.name }}" type="checkbox" name="myPlayer" value="{{ sec_player.name }}">
+                <label for="{{ sec_player.name }}">
+                    <img src="../static/photos/noname.jpg" class="img-rounded" width="70" height="70"/>
+                    <span>{{ sec_player.name }}</span>
                 </label>
             </div>
             {% endfor %}

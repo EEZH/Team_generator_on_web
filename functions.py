@@ -52,7 +52,8 @@ def players_create(active_players_list):
     players_cl_list = []
 
     for i in range(len(active_players_list)):
-        player = Player(active_players_list[i][1],
+        player = Player(active_players_list[i][0],
+                        active_players_list[i][1],
                         active_players_list[i][2],
                         active_players_list[i][3],
                         active_players_list[i][4],
@@ -63,6 +64,26 @@ def players_create(active_players_list):
                         active_players_list[i][9])
         players_cl_list.append(player)
     return players_cl_list
+
+
+#  генерация списка экземпляров класса Player из списка всех игроков
+def all_players_create(ish_spisok):
+    players_class_list = []
+
+    for i in range(len(ish_spisok)):
+        player = Player(ish_spisok[i][0],
+                        ish_spisok[i][1],
+                        ish_spisok[i][2],
+                        ish_spisok[i][3],
+                        ish_spisok[i][4],
+                        ish_spisok[i][5],
+                        ish_spisok[i][6],
+                        ish_spisok[i][7],
+                        ish_spisok[i][8],
+                        ish_spisok[i][9])
+        players_class_list.append(player)
+
+    return players_class_list
 
 
 # просто вывод атрибутов экзеипляров класса Player
@@ -186,10 +207,57 @@ def file_list():
     files = os.listdir(directory)
     images = []
     for file in files:
-        if file.endswith(".jpg"):
+        if file.endswith(".jpg") or file.endswith(".png"):
             images.append(file)
     return images
 
 
-a = file_list()
-print(a[0])
+# создание двух списков игроков: с фото и без
+def players_photo_list(players):
+    images = file_list()
+    player_with_photo = []
+    player_without_photo = []
+    for player in all_players_create(db_list_getter()):
+        for image in images:
+            if str(player.id) + ".jpg" == image or str(player.id) + ".png" == image:
+                player_with_photo.append(player)
+                break
+        else:
+            player_without_photo.append(player)
+    return player_with_photo, player_without_photo
+
+
+def players_class_list():
+    players = all_players_create(db_list_getter())
+    # print(players)
+    return players
+
+
+name_list = []
+players = players_class_list()
+for player in players:
+    name_list.append(player.name)
+# print((name_list))
+year = cur_year()
+
+
+def list_form():
+    list = []
+    for player in players:
+        PLAYER = [
+            dict(name=player.name, average_stats=player.average_stats)
+        ]
+        list.append(PLAYER)
+    return list
+
+a = list_form()
+players_class_list = all_players_create(db_list_getter())
+
+
+photos = players_photo_list(players_class_list)
+print(photos[0])
+print(photos[1])
+for player in photos[1]:
+    print(player.name)
+for player in photos[0]:
+    print(player.name)

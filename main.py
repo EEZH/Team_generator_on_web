@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
-from data import players, year
-from functions import team_power, delta_power, team_clbr
+# from data import players, year
+from functions import team_power, delta_power, team_clbr, players, year, players_photo_list, all_players_create, db_list_getter
 
 app = Flask(__name__)
 
@@ -12,8 +12,11 @@ def home():
 
 @app.route("/team_gen/", methods=["GET", "POST"])
 def team_gen():
+    photos = players_photo_list(all_players_create(db_list_getter()))
+    players_with_photos = photos[0]
+    players_without_photos = photos[1]
     if request.method == "GET":
-        return render_template("team_gen.html", players=players, year=year)
+        return render_template("team_gen.html", players=players_with_photos, sec_players=players_without_photos,  year=year)
 
     active_players = request.form.getlist("myPlayer")
 
@@ -50,7 +53,6 @@ def team_gen():
         return team_1, team_2
 
     teams = team_creator()
-    print(teams)
 
     delta_power_loc = delta_power(team_creator()[0], team_creator()[1])
     clbr = team_clbr(team_creator()[0], team_creator()[1])

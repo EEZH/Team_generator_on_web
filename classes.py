@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 class Player:
-    def __init__(self, name, speed, stamina, passing, shot,
+    def __init__(self, id, name, speed, stamina, passing, shot,
                  teamplay, goalkeeping, amplua, average_stats):
+        self.id = id
         self.name = name
         self.speed = float(speed)
         self.stamina = float(stamina)

@@ -1,16 +1,15 @@
-from flask import Flask, render_template, request, redirect
-# from data import players, year
+from flask import Flask, render_template, request
 from functions import team_power, delta_power, team_clbr, players, year, players_photo_list, all_players_create, db_list_getter
 
-app = Flask(__name__)
 
+application = Flask(__name__)
 
-@app.route("/")
+@application.route("/")
 def home():
     return render_template("home.html", year=year)
 
 
-@app.route("/team_gen/", methods=["GET", "POST"])
+@application.route("/team_gen/", methods=["GET", "POST"])
 def team_gen():
     photos = players_photo_list(all_players_create(db_list_getter()))
     players_with_photos = photos[0]
@@ -63,20 +62,20 @@ def team_gen():
                            team2=team2, team2_power=team_power(team2))
 
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def not_found(error):
     return render_template("404.html", page="not found")
 
 
-@app.route("/teams/")
+@application.route("/teams/")
 def teams():
     return render_template("teams.html", year=year)
 
 
-@app.route("/players/")
+@application.route("/players/")
 def players_list():
     return render_template("players_list.html", players=players, year=year)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)

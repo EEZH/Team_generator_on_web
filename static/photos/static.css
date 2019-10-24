@@ -121,40 +121,48 @@ background:#358DE5;
 	color:#ffffff;
 	webkit-filter: sepia(0.7);
 	filter: sepia(0.8);"
+	
 	}
 .result-viewer {
-	padding-left:30px;
-	padding-top:5px;
+	padding-left:20px;
+	padding-top: 5px;
+
 }
 .teams-result-viewer {
-	padding-bottom:5px; 
-	padding-left:50px;
+
+	padding-left:40px;
 }
 .players-result-viewer {
-	padding-left:50px;
-	font-size:12pt;
+	padding-left:40px;
+	font-size:10pt;
 	font-style: italic;
 	
 }
 .teams-result-viewer-left {
-	padding-bottom:5px; 
-	padding-left:30px;
+	padding-left:20px;
 }
 .players-result-viewer-left {
-	padding-left:30px;
-	font-size:12pt;
+	padding-left:20px;
+	font-size:10t;
 	font-style: italic;
 	
 }
 .average-stats-viewer-left {
-	padding-left:30px;
+	padding-left:20px;
 	padding-top:5px;
 	font-size:10pt;
 	font-style: oblique;
 }
 .average-stats-viewer {
-	padding-left:50px;
+	padding-left:40px;
 	padding-top:5px;
 	font-size:10pt;
 	font-style: oblique;
+}
+.nav_fonts{
+	font-size:10pt;
+}
+.sticky-block {
+	position: sticky;
+	bottom: 0;
 }

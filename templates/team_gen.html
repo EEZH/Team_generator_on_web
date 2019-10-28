@@ -6,63 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../static/photos/static.css" rel="stylesheet">
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='semantic/dist/semantic.min.css') }}">
+</head>
 
+{% extends "base.html" %}
 
-    {% extends "base.html" %}
+{% block navigation %}
+    {% include "menu.html" %}
+{% endblock %}
 
-    {% block navigation %}
+{% block content %}
+<h2>Выберите активных игроков:</h2>
 
-    <div class="row">
-        <div class="col- col-sm- col-md- nav-fonts">
-            <ul class="nav nav-pills nav-justified">
-                <li role="presentation"><a href="/"><h5 class="nav-fonts">Главная</h5></a></li>
-                <li role="presentation" class="active"><a href="/team_gen/"><h5>Сформировать команды</h5></a></li>
-                <li role="presentation"><a href="/players/"><h5>Наши футболисты</h5></a></li>
-            </ul>
+<form action="/team_gen/" method="POST">
+
+    <div class="wrapper">
+        {% for player in players %}
+        <div class="checkbox1">
+            <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
+            <label for="{{ player.name }}">
+                <img src="../static/photos/{{ player.id }}.jpg" class="img-rounded" width="70" height="70"/>
+                <span>{{ player.name }}</span>
+            </label>
         </div>
+        {% endfor %}
+        {% for sec_player in sec_players %}
+        <div class="checkbox1">
+            <input id="{{ sec_player.name }}" type="checkbox" name="myPlayer" value="{{ sec_player.name }}">
+            <label for="{{ sec_player.name }}">
+                <img src="../static/photos/noname.jpg" class="img-rounded" width="70" height="70"/>
+                <span>{{ sec_player.name }}</span>
+            </label>
+        </div>
+        {% endfor %}
+    </div><!--.wrapper-->
+    {% endblock %}
+
+    {% block button %}
+    <div class="superbutton_1 sticky-block">
+        <p></p>
+        <button type="submit" class="superbutton_1">Cформировать команды</button>
     </div>
     {% endblock %}
 
-    {% block content %}
+</form>
 
-    <h2>Выберите активных игроков:</h2>
-
-    <form action="/team_gen/" method="POST">
-
-        <div class="wrapper">
-            {% for player in players %}
-            <div class="checkbox1">
-                <input id="{{ player.name }}" type="checkbox" name="myPlayer" value="{{ player.name }}">
-                <label for="{{ player.name }}">
-                    <img src="../static/photos/{{ player.id }}.jpg" class="img-rounded" width="70" height="70"/>
-                    <span>{{ player.name }}</span>
-                </label>
-            </div>
-            {% endfor %}
-            {% for sec_player in sec_players %}
-            <div class="checkbox1">
-                <input id="{{ sec_player.name }}" type="checkbox" name="myPlayer" value="{{ sec_player.name }}">
-                <label for="{{ sec_player.name }}">
-                    <img src="../static/photos/noname.jpg" class="img-rounded" width="70" height="70"/>
-                    <span>{{ sec_player.name }}</span>
-                </label>
-            </div>
-            {% endfor %}
-        </div><!--.wrapper-->
-
-
-        {% endblock %}
-        {% block button %}
-        <div class="superbutton_1 sticky-block">
-            <p></p>
-            <button type="submit" class="superbutton_1">Cформировать команды</button>
-        </div>
-        {% endblock %}
-
-    </form>
-
-    {% block date %}
-    <p>{{ year }}</p>
-    {% endblock %}
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}
 
 </html>

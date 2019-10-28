@@ -166,3 +166,12 @@ background:#358DE5;
 	position: sticky;
 	bottom: 0;
 }
+.inline-blocks {
+	display: inline-block;
+
+}
+.ui card1 {
+	height: auto;
+    width: 100px;
+    display: inline-block;
+}

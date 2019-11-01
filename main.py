@@ -157,8 +157,8 @@ def user_control():
         if request.method == "POST":
             new_player = request.form
             new_player_amplua = request.form["amplua"]
-            print(new_player)
-            print(new_player_amplua)
+            # print(new_player)
+            # print(new_player_amplua)
             userControl.add_player(new_player)
             # return redirect(f"/users?id={id}")
         return render_template("add_player_form.html", page="add user", year=year, menu_items=MENU_WITH_SESSION_ADMIN,

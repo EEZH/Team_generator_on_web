@@ -192,4 +192,3 @@ def list_form():
         ]
         list.append(PLAYER)
     return list
-

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import sqlite3
 import hashlib
 from flask import session
@@ -16,7 +15,7 @@ class Player:
         self.teamplay = float(teamplay)
         self.goalkeeping = float(goalkeeping)
         self.amplua = amplua
-        average_stats = (self.speed + self.stamina + self.passing + self.shot + self.teamplay) / 5
+        average_stats = round((self.speed + self.stamina + self.passing + self.shot + self.teamplay) / 5, 3)
         self.average_stats = average_stats
 
 

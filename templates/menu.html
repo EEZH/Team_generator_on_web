@@ -1,9 +1,11 @@
 {% block navigation %}
 <ul class="nav nav-pills">
     {% for item in menu_items %}
-        <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link active" href="{{item['ref']}}">{{item['name']}}</a>
     </li>
     {% endfor %}
 </ul>
+
 {% endblock %}
+

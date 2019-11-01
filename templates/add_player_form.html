@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+{% include "menu.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="ui attached message">
+  <div class="header">Для создания игрока заполните форму ниже </div>
+</div>
+<form action="/add_player/" method="POST" class="ui form attached fluid segment">
+
+    <div class="ui form">
+        <div class="fields">
+            <div class="field">
+                <label>Имя</label>
+                <input type="text" name="name" placeholder="Введите имя">
+            </div>
+            <div class="field">
+                <label>Login</label>
+                <input type="text" name="login" placeholder="Введите логин">
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label>Скорость</label>
+                <input type="text" name="speed" placeholder="Значение от 0 до 10">
+            </div>
+            <div class="field">
+                <label>Выносливость</label>
+                <input type="text" name="stamina" placeholder="Значение от 0 до 10">
+            </div>
+            <div class="field">
+                <label>Пас</label>
+                <input type="text" name="passing" placeholder="Значение от 0 до 10">
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label>Удар</label>
+                <input type="text" name="shot" placeholder="Значение от 0 до 10">
+            </div>
+            <div class="field">
+                <label>Командная игра</label>
+                <input type="text" name="teamplay" placeholder="Значение от 0 до 10">
+            </div>
+            <div class="field">
+                <label>Вратарские навыки</label>
+                <input type="text" name="goalkeeping" placeholder="Значение от 0 до 10">
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label>Амплуа</label>
+<!--                <input type="text" name="amplua">-->
+                <select name="amplua">
+                    <option value="Вратарь">Вратарь</option>
+                    <option value="Защитник">Защитник</option>
+                    <option value="Нападающий">Нападающий</option>
+                </select>
+            </div>
+        </div>
+        <div class="superbutton_1">
+            <input type="submit" value="Добавить игрока" class="superbutton_1">
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}

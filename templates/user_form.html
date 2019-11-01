@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+{% include "menu.html" %}
+{% endblock %}
+
+{% block content %}
+<h3>Изменить логин и пароль</h3>
+
+<div class="ui attached message">
+    <div class="header">Для изменения логина или пароля заполните форму ниже</div>
+</div>
+<form action="/user_form/" method="POST" class="ui form attached fluid segment">
+
+    <div class="ui form">
+        <div class="fields">
+            <div class="field">
+                <label>Текущий логин</label>
+                <input type="text" name="cur_login" value="{{ session.get('player') }}" disabled>
+            </div>
+            <div class="field">
+                <label>Текущий пароль</label>
+                <input type="password" name="cur_pass" placeholder="Текущий пароль">
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label>Новый логин</label>
+                <input type="text" name="new_login" placeholder="Новый логин">
+            </div>
+            <div class="field">
+                <label>Новый пароль</label>
+                <input type="password" name="new_pass" placeholder="Новый пароль">
+            </div>
+            <div class="field">
+                <label>Подтвердите пароль</label>
+                <input type="password" name="new_pass_acc" placeholder="Подтвердите пароль">
+            </div>
+        </div>
+
+        <div class="superbutton_1">
+            <input type="submit" value="Добавить игрока" class="superbutton_1">
+        </div>
+    </div>
+    {% if is_err %}
+    <small class="text-danger">Внимательно заполните поля ввода!</small>
+    {% endif %}
+</form>
+{% endblock %}
+
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}

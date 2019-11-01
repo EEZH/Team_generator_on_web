@@ -1,7 +1,6 @@
 import sqlite3
 from classes import Player
 import random
-import tkinter as tk
 import datetime
 import os
 
@@ -47,7 +46,7 @@ def ap_list_getter():
     return active_players
 
 
-#  генерация списка экземпляров класса Player из списка активных списков игроков
+#  генерация списка экземпляров класса Player из списка активных игроков
 def players_create(active_players_list):
     players_cl_list = []
 
@@ -129,62 +128,6 @@ def team_clbr(team_1, team_2):
     return team_1, team_2
 
 
-# отрисовываем окно добавления игрока
-def add_user_render():
-    top_window = tk.Toplevel()
-    top_window.geometry("300x300")
-    top_window.title = "Add user"
-
-    lbl_main = tk.Label(top_window, text="Введите информацию:")
-    lbl_main.grid(sticky="W", row=0, column=0, columnspan=3)
-
-    input_name = tk.Entry(top_window)
-    input_name.grid(sticky="W", row=1, column=1)
-    lbl_name = tk.Label(top_window, text="Фамилия и имя:")
-    lbl_name.grid(sticky="W", row=1, column=0)
-
-    input_speed = tk.Entry(top_window)
-    input_speed.grid(sticky="W", row=2, column=1)
-    lbl_speed = tk.Label(top_window, text="Скорость:")
-    lbl_speed.grid(sticky="W", row=2, column=0)
-
-    input_stamina = tk.Entry(top_window)
-    input_stamina.grid(sticky="W", row=3, column=1)
-    lbl_stamina = tk.Label(top_window, text="Выносливость:")
-    lbl_stamina.grid(sticky="W", row=3, column=0)
-
-    input_passing = tk.Entry(top_window)
-    input_passing.grid(sticky="W", row=4, column=1)
-    lbl_passing = tk.Label(top_window, text="Пас:")
-    lbl_passing.grid(sticky="W", row=4, column=0)
-
-    input_shot = tk.Entry(top_window)
-    input_shot.grid(sticky="W", row=5, column=1)
-    lbl_shot = tk.Label(top_window, text="Удар:")
-    lbl_shot.grid(sticky="W", row=5, column=0)
-
-    input_teamplay = tk.Entry(top_window)
-    input_teamplay.grid(sticky="W", row=6, column=1)
-    lbl_teamplay = tk.Label(top_window, text="Командность:")
-    lbl_teamplay.grid(sticky="W", row=6, column=0)
-
-    input_goalkeeping = tk.Entry(top_window)
-    input_goalkeeping.grid(sticky="W", row=7, column=1)
-    lbl_goalkeeping = tk.Label(top_window, text="Навыки вратаря")
-    lbl_goalkeeping.grid(sticky="W", row=7, column=0)
-
-    input_amplua = tk.Entry(top_window)
-    input_amplua.grid(sticky="W", row=8, column=1)
-    lbl_amplua = tk.Label(top_window, text="Амплуа")
-    lbl_amplua.grid(sticky="W", row=8, column=0)
-
-    btn_accept_user = tk.Button(top_window, text="Accept")
-    #                         , command=lambda: self.on_click(
-    # input_name, input_surname, input_age, input_email, input_mobile, root=top_window))
-    btn_accept_user.grid(row=10, column=1)
-    return top_window
-
-
 def add_user(self, name, surname, age, email, mobile):
     conn = sqlite3.connect("players_db.db")
     cursor = conn.cursor()
@@ -250,14 +193,3 @@ def list_form():
         list.append(PLAYER)
     return list
 
-a = list_form()
-players_class_list = all_players_create(db_list_getter())
-
-
-photos = players_photo_list(players_class_list)
-print(photos[0])
-print(photos[1])
-for player in photos[1]:
-    print(player.name)
-for player in photos[0]:
-    print(player.name)

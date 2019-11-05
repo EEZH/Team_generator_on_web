@@ -11,7 +11,7 @@
 
 {% block navigation %}
 
-    {% include "menu.html" %}
+{% include "menu.html" %}
 {% endblock %}
 
 {% block content %}
@@ -52,50 +52,51 @@
                     Среднее: {{ player.average_stats }}
                 </div>
             </div>
+
         </div>
 
     </div>
     {% endfor %}
 </div>
 <div class="inline-blocks col-sm-12 col-xs-12">
-{% for sec_player in sec_players %}
-<div class="ui card">
+    {% for sec_player in sec_players %}
+    <div class="ui card">
 
-    <div class="image">
-        <img src="../static/photos/noname.jpg">
-    </div>
-    <div class="content">
-        <a class="header">{{ sec_player.name }}</a>
-        <div class="meta">
-            <span class="date">{{ sec_player.amplua }}</span>
+        <div class="image">
+            <img src="../static/photos/noname.jpg">
         </div>
-        <div class="description">
-            Скорость: {{ sec_player.speed }}
-        </div>
-        <div class="description">
-            Выносливость: {{ sec_player.stamina }}
-        </div>
-        <div class="description">
-            Пас: {{ sec_player.passing }}
-        </div>
-        <div class="description">
-            Удар: {{ sec_player.shot }}
-        </div>
-        <div class="description">
-            Командность: {{ sec_player.teamplay }}
-        </div>
-        <div class="description">
-            Навыки вратаря: {{ sec_player.goalkeeping }}
-        </div>
-        <div class="description">
+        <div class="content">
+            <a class="header">{{ sec_player.name }}</a>
+            <div class="meta">
+                <span class="date">{{ sec_player.amplua }}</span>
+            </div>
             <div class="description">
-                Среднее: {{sec_player.average_stats }}
+                Скорость: {{ sec_player.speed }}
+            </div>
+            <div class="description">
+                Выносливость: {{ sec_player.stamina }}
+            </div>
+            <div class="description">
+                Пас: {{ sec_player.passing }}
+            </div>
+            <div class="description">
+                Удар: {{ sec_player.shot }}
+            </div>
+            <div class="description">
+                Командность: {{ sec_player.teamplay }}
+            </div>
+            <div class="description">
+                Навыки вратаря: {{ sec_player.goalkeeping }}
+            </div>
+            <div class="description">
+                <div class="description">
+                    Среднее: {{sec_player.average_stats }}
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
-{% endfor %}
+    </div>
+    {% endfor %}
 </div>
 
 

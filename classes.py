@@ -8,14 +8,14 @@ class Player:
                  teamplay, goalkeeping, amplua, average_stats):
         self.id = id
         self.name = name
-        self.speed = float(speed)
-        self.stamina = float(stamina)
-        self.passing = float(passing)
-        self.shot = float(shot)
-        self.teamplay = float(teamplay)
-        self.goalkeeping = float(goalkeeping)
+        self.speed = round(float(speed), 2)
+        self.stamina = round(float(stamina), 2)
+        self.passing = round(float(passing), 2)
+        self.shot = round(float(shot), 2)
+        self.teamplay = round(float(teamplay), 2)
+        self.goalkeeping = round(float(goalkeeping), 2)
         self.amplua = amplua
-        average_stats = round((self.speed + self.stamina + self.passing + self.shot + self.teamplay) / 5, 3)
+        average_stats = round((self.speed + self.stamina + self.passing + self.shot + self.teamplay) / 5, 2)
         self.average_stats = average_stats
 
 
@@ -83,9 +83,9 @@ class User_control:
                ,{new_player["teamplay"]}
                ,{new_player["goalkeeping"]}
                ,"{new_player["amplua"]}"
-                , (({float(new_player["speed"])}+{float(new_player["passing"])}
+                , (round(({float(new_player["speed"])}+{float(new_player["passing"])}
                 +{float(new_player["stamina"])}+{float(new_player["shot"])}
-                +{float(new_player["teamplay"])})/5)
+                +{float(new_player["teamplay"])})/5, 3))
                ,"{new_player["login"]}"
                )
                """
@@ -168,15 +168,33 @@ class User_control:
 
         return response_id
 
-        #
-        # if response is not None:
-        #     result = result.execute(query_get_password, (
-        #         response[0],
-        #         self.get_hash(user_form["pass"])
-        #     ))
-        #
-        #     if result.fetchone() is not None:
-        #         return {"status": "ok"}
-        #
-        #     return {"status": "err"}
-        # return {"status": "err"}
+    def to_arr_dicts(self, data):
+        ready_data = []
+        for user_tuple in data:
+            user = {
+                "id": user_tuple[1],
+                "name": user_tuple[0]
+            }
+            ready_data.append(user)
+        return ready_data
+
+    def search_users(self, name):
+        query = """
+        SELECT name, id 
+        FROM players
+        WHERE name LIKE (?)
+        """
+
+        self.cursor.execute(query, (f'%{name}%',))
+        users = self.cursor.fetchall()
+        return self.to_arr_dicts(users)
+
+    def get_user_data(self, id):
+        query = """
+        SELECT speed
+        FROM players
+        WHERE id = (?)"""
+
+        self.cursor.execute(query, (id,))
+        users_data = self.cursor.fetchone()
+        return users_data

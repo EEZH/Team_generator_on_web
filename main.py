@@ -182,5 +182,46 @@ def user_config():
     return render_template("form_authorization.html", menu_items=MENU_WITHOUT_SESSION, is_err=True, year=year)
 
 
+@application.route("/player_stats", methods=["GET", "POST"])
+def player_stats():
+    if request.method == "GET":
+        if session.get('player') == "ZhurEvg":
+            return render_template("player_stats_form.html", user_name=session["player"], menu_items=MENU_WITH_SESSION_ADMIN,
+                                   year=year, us_value=session.get('player'))
+        if session.get("player"):
+            return render_template("player_stats_form.html", user_name=session["player"], menu_items=MENU_WITH_SESSION,
+                                   year=year)
+        return render_template("form_authorization.html", menu_items=MENU_WITHOUT_SESSION, year=year)
+    if request.method == "POST":
+        new_params = request.form.get('name')
+    #     result = userControl.user_config(request.form)
+        print(new_params)
+    #     return render_template("form_authorization.html", menu_items=MENU_WITHOUT_SESSION, is_err=True, year=year)
+    # return render_template("form_authorization.html", menu_items=MENU_WITHOUT_SESSION, is_err=True, year=year)
+        return new_params
+
+
+@application.route("/users")
+def users():
+    """/users?name=Har"""
+    name = request.args["name"]
+    ready_users = userControl.search_users(name)
+    return dict(users=ready_users)
+
+
+@application.route("/user_data")
+def user_data():
+    """/user_data?user_id=1&user_name=Harry"""
+    user_id = request.args["user_id"]
+    print(user_id)
+    user_name = request.args["user_name"]
+    user = userControl.get_user_data(user_id)
+    print(user)
+    user = {
+        "name": user_name,
+        "id": user_id
+    }
+    return user
+
 if __name__ == "__main__":
     application.run(debug=True)

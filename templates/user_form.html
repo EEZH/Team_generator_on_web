@@ -39,7 +39,9 @@
         </div>
 
         <div class="superbutton_1">
-            <input type="submit" value="Добавить игрока" class="superbutton_1">
+            <input type="submit" onclick="location.href='#iw-modal'" value="Добавить игрока"
+                   class="superbutton_1 iw-modal-btn">
+
         </div>
     </div>
     {% if is_err %}
@@ -51,3 +53,5 @@
 {% block date %}
 <p>{{ year }}</p>
 {% endblock %}
+
+

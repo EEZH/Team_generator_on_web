@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+{% include "menu.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="ui attached message">
+  <div class="header">Оцените параметры игрока </div>
+</div>
+
+<div>
+    <form>
+        <div class="ui icon input">
+            <input id="input-search" type="text" placeholder="Search...">
+            <i class="circular search link icon"></i>
+        </div>
+    </form>
+    <ul id="list-users" class="ui relaxed divided list"></ul>
+    <div id="card-holder"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<!--<form class="ui form attached fluid segment">-->
+
+<!--    <div class="ui form">-->
+<!--        <div class="fields">-->
+<!--            <div class="field">-->
+<!--                <label>Имя</label>-->
+<!--                <input type="text" name="name" placeholder="Введите имя">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="fields">-->
+<!--            <div class="field">-->
+<!--                <label>Скорость</label>-->
+<!--                <input type="text" name="speed" placeholder="Значение от 0 до 10">-->
+<!--            </div>-->
+<!--            <div class="field">-->
+<!--                <label>Выносливость</label>-->
+<!--                <input type="text" name="stamina" placeholder="Значение от 0 до 10">-->
+<!--            </div>-->
+<!--            <div class="field">-->
+<!--                <label>Пас</label>-->
+<!--                <input type="text" name="passing" placeholder="Значение от 0 до 10">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="fields">-->
+<!--            <div class="field">-->
+<!--                <label>Удар</label>-->
+<!--                <input type="text" name="shot" placeholder="Значение от 0 до 10">-->
+<!--            </div>-->
+<!--            <div class="field">-->
+<!--                <label>Командная игра</label>-->
+<!--                <input type="text" name="teamplay" placeholder="Значение от 0 до 10">-->
+<!--            </div>-->
+<!--            <div class="field">-->
+<!--                <label>Вратарские навыки</label>-->
+<!--                <input type="text" name="goalkeeping" placeholder="Значение от 0 до 10">-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="superbutton_1">-->
+<!--            <input type="submit" value="Подтвердить" class="superbutton_1">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</form>-->
+
+{% endblock %}
+{% block date %}
+<p>{{ year }}</p>
+{% endblock %}

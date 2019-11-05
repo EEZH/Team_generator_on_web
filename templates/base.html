@@ -39,6 +39,10 @@
                 {% block result %}
                 {% endblock %}
 
+                {% block modal %}
+                {% endblock %}
+
+
             </section>
             <footer class="footer col-sm-12 col-xs-12">
                 <p>{% block date %}{% endblock %} &copy; Евгений Журбенко
@@ -50,5 +54,5 @@
     </div>
 </div>
 </body>
-
+<!--<script src="{{ url_for('static', filename='js/script.js') }}"></script>-->
 </html>
